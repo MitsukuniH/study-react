@@ -1,44 +1,40 @@
 import React from "react"
 import classes from "./Links.module.css"
 
-
-type LinkProps = {
-	link: string,
-	title: string,
-	content: string,
-}
-const Link: React.FC<LinkProps> = ({link, title, content})=>{
-	return(
-		<a href={link} className={classes.card}>
-			<h3>{title} &rarr;</h3>
-			<p>{content}</p>
-		</a>
-	)
-}
+const ITEMS = [
+	{
+		href: "https://nextjs.org/docs", 
+		title: "Documentation", 
+		discription: "Find in-depth iformation about Next.js features and API."
+	},
+	{
+		href: "https://nextjs.org/learn", 
+		title: "Learn", 
+		discription: "Find in-depth iformation about Next.js features and API."
+	},
+	{
+		href: "https://github.com/vercel/next.js/tree/master/examples", 
+		title: "Examples", 
+		discription: "Find in-depth iformation about Next.js features and API."
+	},
+	{
+		href: "https://vercel.com", 
+		title: "Deploy", 
+		discription: "Find in-depth iformation about Next.js features and API."
+	},
+]
 
 export const Links = ()=>{
   return(
 		<div className={classes.grid}>
-			<Link 
-				link="https://nextjs.org/docs" 
-				title="Documentation" 
-				content="Find in-depth iformation about Next.js features and API."
-			/>
-			<Link 
-				link="https://nextjs.org/learn" 
-				title="Learn" 
-				content="Find in-depth iformation about Next.js features and API."
-			/>
-			<Link 
-				link="https://github.com/vercel/next.js/tree/master/examples" 
-				title="Examples" 
-				content="Find in-depth iformation about Next.js features and API."
-			/>
-			<Link 
-				link="https://vercel.com" 
-				title="Deploy" 
-				content="Find in-depth iformation about Next.js features and API."
-			/>
+			{ITEMS.map((item, index) =>{
+				return(
+					<a key={index} href={item.href} className={classes.card}>
+						<h3>{item.title} &rarr;</h3>
+						<p>{item.discription}</p>
+					</a>
+				)
+			})}
 		</div>
 	)
 }
