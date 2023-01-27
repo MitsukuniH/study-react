@@ -1,7 +1,7 @@
-import { Headline } from "./Headline"
+import { Headline } from "src/components/Headline"
+import { Links } from "src/components/Links"
 import classes from './Main.module.css'
 import React from "react"
-import { Links } from "./Links"
 
 type MainProps = {
 	page: string
